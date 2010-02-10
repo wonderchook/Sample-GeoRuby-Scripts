@@ -11,5 +11,14 @@ def load_file(file)
   
 end
 
+def load_dbf_file(file)
+  reader = GeoRuby::Shp4r::Dbf::Reader.open(file)
+  reader.fields().each do |field|
+    puts field.name
+  end
+
+end
+
 
 load_file("chipolte.shp")
+load_dbf_file("chipolte.dbf")
